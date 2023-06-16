@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>알고리즘 추천강의 콘텐츠</title>
+  <style>
+    body {
+      background-color: #87CEEB;
+      color: #000000;
+    }
+  </style>
+</head>
+<body>
+  <h1>알고리즘 추천강의 콘텐츠</h1>
+  <p>오늘도 수우미를 이용해주셔서 감사합니다. 원하는 이수분야를 선택해서 알고리즘으로 과목을 추천받아보세요!</p>
+  
+  <input type="checkbox" id="checkboxAll" onchange="checkAll(this)">
+  <label for="checkboxAll">전체</label>
+  <br>
+  
+  <input type="checkbox" id="checkbox1" onchange="checkAllBoxes()">
+  <label for="checkbox1">전공기초</label>
+  <br>
+  
+  <input type="checkbox" id="checkbox2" onchange="checkAllBoxes()">
+  <label for="checkbox2">전공필수</label>
+  <br>
+  
+  <input type="checkbox" id="checkbox3" onchange="checkAllBoxes()">
+  <label for="checkbox3">선택필수교양</label>
+  <br>
+  
+  <input type="checkbox" id="checkbox4" onchange="checkAllBoxes()">
+  <label for="checkbox4">일반교양</label>
+  <br>
+  
+  <input type="checkbox" id="checkbox5" onchange="checkAllBoxes()">
+  <label for="checkbox5">일반선택</label>
+  <br>
+  
+  <button id="startButton" onclick="startAlgorithm()">알고리즘 시작</button>
+  
+  <script>
+    function checkAll(checkbox) {
+      const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+      checkboxes.forEach(function (box) {
+        box.checked = checkbox.checked;
+      });
+    }
+    
+    function checkAllBoxes() {
+      const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+      const allCheckbox = document.getElementById('checkboxAll');
+      let allChecked = true;
+      
+      checkboxes.forEach(function (box) {
+        if (!box.checked) {
+          allChecked = false;
+        }
+      });
+      
+      allCheckbox.checked = allChecked;
+    }
+    
+    function startAlgorithm() {
+      const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+      if (checkboxes.length === 0) {
+        alert("체크 박스를 1개 이상 선택하시오");
+      } else {
+        // 알고리즘 시작 동작 추가
+      }
+    }
+  </script>
+</body>
+</html>
